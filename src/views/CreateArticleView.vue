@@ -27,14 +27,18 @@ export default {
         craeateArticleHandler(article){
             console.log(article);
             this.$store.dispatch('createArticle',article)
+            .then(() => {
             this.$router.push('/')
+            this.$store.dispatch('articles')
+            } )
             }
           
         
     },
     computed:{
      ...mapState({
-        isLoading : state => state.articles.isLoading
+        isLoading : state => state.articles.isLoading,
+        data : state => state.articles
      }),
      intialValue(){
         return {

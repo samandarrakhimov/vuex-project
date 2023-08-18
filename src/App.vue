@@ -13,7 +13,6 @@
     components:{ Navbar, },
     mounted() {
       this.$store.dispatch('getuser')
-      this.$store.dispatch('articles')
     },
     
   }

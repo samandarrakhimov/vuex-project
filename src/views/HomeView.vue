@@ -2,7 +2,7 @@
     <div v-if="isLoading">
         <Loader/>
     </div>
-    <div class=" d-flex row-cols-2 flex-wrap " v-else>
+    <div  v-else class=" d-flex row-cols-2 flex-wrap ">
        <Articlecard v-for="article in data" :article="article" :key="article.id"/>
     </div>
 </template>
@@ -17,8 +17,10 @@ export default {
           isLoading : state => state.articles.isLoading
         })
     },
-   
     components: {Articlecard},
+    mounted() {
+        this.$store.dispatch('articles')
+    },
 }
  
 </script>

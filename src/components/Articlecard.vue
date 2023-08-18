@@ -1,5 +1,4 @@
 <template>
-    
         <div class="col-4">
           <div class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="90%" height="230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
@@ -11,12 +10,14 @@
                   <button type="button" class="btn btn-sm btn-outline-secondary" @click="navigateHandler" :disabled="isLoading">
                     Read Article
                 </button>
-                  <button v-if="article.author.username == user.username"
+                  <button
+                  v-if="article?.author?.username == user?.username"
                    type="button" class="btn btn-sm btn-outline-danger"
                     :disabled="isLoading"
                     @click="removeArticleHandler"
                     >Delete</button>
-                    <button v-if="article.author.username == user.username"
+                    <button 
+                    v-if="article?.author?.username == user?.username"
                    type="button" class="btn btn-sm btn-outline-success"
                     :disabled="isLoading"
                     @click="editArticleHandler"
@@ -30,7 +31,7 @@
     
 </template>
 <script>
-import { mapState } from 'vuex';
+import { mapState } from'vuex';
 export default {
     props:{
         article:{
@@ -41,7 +42,7 @@ export default {
     computed:{
         ...mapState({
             user: state => state.auth.user,
-            isLoading: state => state.articles.isLoading
+            isLoading: state => state.control.isLoading
         }),
     },
     methods: {

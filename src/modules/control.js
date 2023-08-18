@@ -18,15 +18,18 @@ const mutations = {
 
 const actions = {
    createArticle(context, article){
-    return new Promise(() => {
+    return new Promise(resolve => {
         context.commit('cotrolArticleStart')
        ArticlesService.craeteArticle(article)
-       .then(() => {context.commit(' cotrolArticleSuccess')})
+       .then(() => {
+        context.commit('cotrolArticleSuccess')
+        resolve()
+      })
        .catch(() => {context.commit('cotrolArticleFailure')}) 
     })
    },
    removeArticle(context, slug){
-     return new Promise((resolve) => {
+     return new Promise(resolve => {
         context.commit('cotrolArticleStart')
         ArticlesService.removeArticle(slug)
         .then(() => {
@@ -37,7 +40,7 @@ const actions = {
      })
    },
    EditArticle(context, data){
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
         context.commit('cotrolArticleStart')
       ArticlesService.EditArticle(data.article, data.slug)
       .then(() => {

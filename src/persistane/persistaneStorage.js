@@ -14,3 +14,10 @@
         console.log('savin setItem');
     }
 }
+export const removeItem = key => {
+  try {
+    localStorage.removeItem(key)
+  } catch (error) {
+    console.log('remove item',error);
+  }
+}

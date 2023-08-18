@@ -1,4 +1,4 @@
-import { setItem } from "../persistane/persistaneStorage"
+import { removeItem, setItem } from "../persistane/persistaneStorage"
 import AuthService from "../service/auth"
 const state = {
 	isLoading: false,
@@ -129,7 +129,7 @@ const mutations = {
             },
             logout(context){
                context.commit('logout') 
-               removeitem('token')
+              removeItem('token')
             }
             
     }

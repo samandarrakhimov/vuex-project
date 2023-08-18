@@ -34,6 +34,7 @@ export default {
         editArticleHandler(article){
          this.$store.dispatch('EditArticle',{article:article,slug:this.$route.params.slug}).then(() => {
          this.$router.push({name:'home'})
+         this.$store.dispatch('articles')
          })
         }
     },

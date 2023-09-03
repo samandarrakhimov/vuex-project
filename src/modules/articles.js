@@ -27,8 +27,6 @@ const mutations = {
     state.errors = null
   },
   articleDetailSuccess(state, payload){
-     state.data = null
-     state.errors = null
     state.isLoading = false,
     state.articleDetail = payload
     
@@ -53,6 +51,7 @@ const actions = {
       context.commit('articleDetailStart')
       ArticlesService.articleDetail(slug).then(response => {
         context.commit('articleDetailSuccess', response.data.article)
+        console.log(response.data.article);
         resolve(response.data.article)
       }).catch(() => {
         context.commit('articlesFailure')

@@ -1,5 +1,5 @@
 <template>
-    <main class="form-siginig w-25 m-auto pt-5">
+    <main class="form-siginig w-md-50% w-md-25 m-auto pt-5">
     <form>
 
     <h1 class="font-monospace fw-bold  mb-3" style="width: 500px; margin-left: 100px;">Register</h1>

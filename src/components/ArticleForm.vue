@@ -1,6 +1,6 @@
 <template>
-    <div style="width: 900px; margin: auto;">
-       <form @submit.prevent>
+    <div class="w-100 m-auto">
+       <form @submit.prevent class="">
         <Input type="text" label="title" v-model="title" />
         <Textare type="text" label="description" v-model="description"/>
         <Textare type="text" label="body" v-model="body"/>
